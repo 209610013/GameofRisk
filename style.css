@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
+  color: #343a40;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.status p {
+  font-size: 18px;
+  color: #495057;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#draw-attack {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#draw-defense {
+  background-color: #3498db;
+  color: white;
+}
+
+#next-turn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
+#progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.log {
+  text-align: left;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 150px;
+  overflow-y: auto;
+}
+
+.log ul {
+  list-style: none;
+  padding: 0;
+}
+
+.log li {
+  margin-bottom: 10px;
+}
+
+.scoreboard {
+  text-align: left;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+}

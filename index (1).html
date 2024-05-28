@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Security Game</h1>
+        <div id="game">
+            <div class="status">
+                <p>Player 1 Asset Value: <span id="asset-value-player1">1000</span></p>
+                <p>Player 2 Asset Value: <span id="asset-value-player2">1000</span></p>
+                <p>Current Turn: <span id="current-turn">Player 1</span></p>
+            </div>
+            <button id="draw-attack">Draw Attack</button>
+            <div id="attack-card" class="card hidden">
+                <h2>Attack Card</h2>
+                <p id="attack-description"></p>
+                <p>Exposure Factor: <span id="exposure-factor"></span></p>
+                <p>Potential Loss (SLE): <span id="sle"></span></p>
+            </div>
+            <button id="draw-defense" class="hidden">Draw Defense</button>
+            <div id="defense-card" class="card hidden">
+                <h2>Defense Card</h2>
+                <p id="defense-description"></p>
+                <p>Adjusted Exposure Factor: <span id="adjusted-exposure-factor"></span></p>
+                <p>Adjusted Loss: <span id="adjusted-loss"></span></p>
+            </div>
+            <button id="next-turn" class="hidden">Next Turn</button>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="game-log" class="log">
+                <h3>Game Log</h3>
+                <ul id="log-list"></ul>
+            </div>
+            <div id="scoreboard" class="scoreboard hidden">
+                <h3>Scoreboard</h3>
+                <p>Player 1: <span id="final-score-player1"></span></p>
+                <p>Player 2: <span id="final-score-player2"></span></p>
+                <p>Winner: <span id="winner"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
