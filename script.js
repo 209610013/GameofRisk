@@ -32,6 +32,11 @@ function drawAttack() {
     document.getElementById('attack-card').classList.remove('hidden');
     document.getElementById('draw-defense').classList.remove('hidden');
     document.getElementById('draw-attack').classList.add('hidden');
+
+    const currentPlayerName = currentPlayer === 1 ? 'Player 1' : 'Player 2';
+    const logMessage = `${currentPlayerName} drew ${attack.description}.`;
+    logAction(logMessage);
+
 }
 
 function drawDefense() {
@@ -44,9 +49,13 @@ function drawDefense() {
     if (currentPlayer === 1) {
         player1AssetValue -= adjustedLoss;
         document.getElementById('asset-value-player1').innerText = player1AssetValue.toFixed(2);
-    } else {
+    } else {   
         player2AssetValue -= adjustedLoss;
         document.getElementById('asset-value-player2').innerText = player2AssetValue.toFixed(2);
+        
+        const currentPlayerName = currentPlayer === 1 ? 'Player 1' : 'Player 2';
+        const logMessage = `${currentPlayerName} drew ${defense.description}. Adjusted loss: ${adjustedLoss.toFixed(2)}.`;
+        logAction(logMessage);
     }
 
     document.getElementById('defense-description').innerText = defense.description;
@@ -65,5 +74,35 @@ function nextTurn() {
     document.getElementById('defense-card').classList.add('hidden');
     document.getElementById('next-turn').classList.add('hidden');
     document.getElementById('draw-attack').classList.remove('hidden');
+
+    // Check for a winner
+    if (player1AssetValue <= 0 || player2AssetValue <= 0) {
+        endGame();
+    }
 }
 
+function endGame() {
+    // Determine the winner
+    let winner = player1AssetValue > player2AssetValue ? 'Player 1' : 'Player 2';
+
+    // Log the end of the game and the winner
+    const logMessage = `Game over! ${winner} wins with an asset value of ${winner === 'Player 1' ? player1AssetValue.toFixed(2) : player2AssetValue.toFixed(2)}.`;
+    logAction(logMessage);
+
+    // Update the scoreboard with final scores and the winner
+    document.getElementById('final-score-player1').innerText = player1AssetValue.toFixed(2);
+    document.getElementById('final-score-player2').innerText = player2AssetValue.toFixed(2);
+    document.getElementById('winner').innerText = winner;
+
+    // Show the scoreboard
+    document.getElementById('scoreboard').classList.remove('hidden');
+}
+
+function logAction(message) {
+    // Create a new list item element
+    const listItem = document.createElement('li');
+    // Set the text content of the list item to the provided message
+    listItem.textContent = message;
+    // Append the list item to the log list
+    document.getElementById('log-list').appendChild(listItem);
+}
